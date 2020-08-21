@@ -1,44 +1,83 @@
 import java.awt.Color;
 
 public class App {
-    
     public static void main(String[] args) throws Exception {
-        Circulo circulo1 = new Circulo (100);
-        Circulo circulo2 = new Circulo (300);
-        Circulo circulo3 = new Circulo (600);
-        // Codificar acciones parecidas para la 
-        // clase Rectangulo
-        // Rectangulo ...
-
-        circulo1.setX(250);
-        circulo1.setY(250);
-
-        circulo2.setX(150);
-        circulo2.setY(150);
-
+        
         Canvas miVentana = new Canvas("Hola Ventana", 800, 600);
         miVentana.setVisible(true);
+        
+        Circulo circulo1 = new Circulo(100);
+        circulo1.setX(50);
+        circulo1.setY(50);
 
-        // Dibujamos el primer Circulo
-        // miVentana.setColorDeLapiz(Color.GREEN);
-        miVentana.setColorDeLapiz(circulo3.getColor());
-        miVentana.rellenarCirculo(circulo3.getX(), circulo3.getY(), circulo3.getDiametro());
+        Rectangulo rectangulo1 = new Rectangulo(300, 300);
+        rectangulo1.setX(150);
+        rectangulo1.setY(150);
 
-        miVentana.setColorDeLapiz(circulo2.getColor());
-        miVentana.rellenarCirculo(circulo2.getX(), circulo2.getY(), circulo2.getDiametro());
+        
 
-        miVentana.setColorDeLapiz(circulo1.getColor());
+
+        /*
+
+        // Dibujar un circulo azul y un rectangulo rojo
+        
+        miVentana.setColorDeLapiz(Color.BLUE);
+        miVentana.rellenarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getRadio());
+        miVentana.setColorDeLapiz(Color.RED);
+        miVentana.rellenarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(), rectangulo1.getLado2());
+
+
+        // FOR // 
+        
+        // Aumentar el tamaño del circulo 
+        
+        for (int radio = 50; radio < 200; radio++) {
+            miVentana.borrarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getRadio());
+            circulo1.setRadio(circulo1.getRadio() + 10);            
+            miVentana.rellenarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getRadio());
+            miVentana.espera(250);
+        }
+
+        // Disminuir el tamaño del rectangulo  
+
+        for (int i = 1; i < 15; i++) {
+            miVentana.setColorDeLapiz(Color.ORANGE);
+            miVentana.borrarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(), rectangulo1.getLado2());
+            rectangulo1.setLado1(rectangulo1.getLado1() - 20);     
+            rectangulo1.setLado2(rectangulo1.getLado2() - 20);       
+            miVentana.rellenarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(), rectangulo1.getLado2());
+            miVentana.espera(250);
+            
+        }
+
+
+        // WHILE //
+
+        // Mover el circulo a la derecha 
+
+        int repe = 0;
+        while (repe < 10) {
+        miVentana.setColorDeLapiz(Color.PINK);
+        miVentana.borrarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getDiametro());
+        circulo1.setX( circulo1.getX() + 30 );
         miVentana.rellenarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getDiametro());
+        repe = repe + 1;
+        miVentana.espera(200);
+        }
 
-        // Dibujar un rectangulo de color ROJO (RED)
-        // rellenarRectangulo(int xPos, int yPos, int ancho, int alto)
+        // Mover el rectangulo hacia abajo
 
-        // miVentana.espera(30000);
-        // miVentana.borrarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getDiametro());
-        // // circulo1.setX(250);
-        // circulo1.setY(150);
-        // miVentana.setColorDeLapiz(Color.BLUE);
-        // miVentana.rellenarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getDiametro());
+        int rep = 0;
+        while (rep < 10) {
+        miVentana.espera(500);
+        miVentana.setColorDeLapiz(Color.MAGENTA);
+        miVentana.borrarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(), rectangulo1.getLado2());
+        rectangulo1.setY( rectangulo1.getY() + 40 );
+        miVentana.rellenarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(), rectangulo1.getLado2());
+        rep = rep + 1;
+        }
+
+        */    
 
     }
 }

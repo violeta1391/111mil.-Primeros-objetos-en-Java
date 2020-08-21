@@ -7,3 +7,4 @@ Diagramas de Clase -> Expresan las clases y sus relaciones
 Diagramas de Colaboración (extensión de diagramas de flujo)
 
 Diagrama de Secuencia
+

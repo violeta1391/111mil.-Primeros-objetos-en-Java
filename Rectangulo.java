@@ -1,25 +1,47 @@
+import java.awt.Color;
+
 public class Rectangulo {
+
+    private Color color ;
     private int lado1;
     private int lado2;
     private int x;
     private int y;
 
-
-    /**
-     * Este metodo establece el color del Rectangulo segun
-     * la superficie configurada.
-     * 
-     * Si superficie <   500 -> tiene color azul (Color.BLUE)
-     * Si superficie <  1000 -> tiene color verde (Color.GREEN)
-     * Si superficie <  1500 -> tiene color amarillo (Color.YELLOW)
-     * Si superficie <  2000 -> tiene color naranja (Color.ORANGE)
-     * Si superficie <  2500 -> tiene color rojo (Color.RED)
-     * Si superficie >= 3000 -> tiene color magenta (Color.MAGENTA)
-     */
-    private void determinarColor () {
-        // TODO implementar
+  
+    public Rectangulo(int lado1, int lado2){
+        this.lado1 = lado1;
+        this.lado2 = lado2;
+        determinarColor();
     }
 
+    // Determina el color del rectangulo segun la
+
+    private void determinarColor() {
+        if (getSuperficie() < 100) {
+            setColor(Color.BLUE);
+        }
+        else if (getSuperficie() < 200) {
+            setColor(Color.GREEN);
+        }
+        else if (getSuperficie() < 300) {
+            setColor(Color.YELLOW);
+        }
+        else if (getSuperficie() < 400) {
+            setColor(Color.ORANGE);
+        }
+        else if (getSuperficie() < 500) {
+            setColor(Color.RED);
+        }
+        else {
+            setColor(Color.MAGENTA);
+        }
+    }
+
+
+    public int getSuperficie() {
+        return lado1 * lado2;        
+    }
 
     public int getLado1() {
         return lado1;
@@ -53,7 +75,13 @@ public class Rectangulo {
         this.y = y;
     }
 
-    // Click derecho sobre el codigo fuente
-    // click en "Source action"
-    // click en "Generate Getter and Setters"
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
 }
+
