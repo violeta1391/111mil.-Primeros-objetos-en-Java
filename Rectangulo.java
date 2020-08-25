@@ -15,7 +15,7 @@ public class Rectangulo {
         determinarColor();
     }
 
-    // Determina el color del rectangulo segun la
+    // Determina el color del rectangulo segun la superficie
 
     private void determinarColor() {
         if (getSuperficie() < 100) {

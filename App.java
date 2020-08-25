@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class App {
 
@@ -6,9 +7,15 @@ public class App {
     private int ancho = 800;
     private int alto = 600;
 
+    private ArrayList<Circulo> circulos;
+    private ArrayList<Rectangulo> rectangulos;
+
     public App() {
         miVentana = new Canvas("Hola Ventana", ancho, alto);
         miVentana.setVisible(true);
+
+        circulos = new ArrayList<>();
+        rectangulos = new ArrayList<>();
     }
 
     public static void main(String[] args) throws Exception {
@@ -17,10 +24,14 @@ public class App {
     }
 
     public void ejecutar() {
-        //PelotaRebotando();
+        //PelotaRebotandoHorizontal();
         //PelotaRebotandoVertical();
         //rebotarPelota();
-        rebotaRec();
+        //rebotaRec();
+
+        CrearFigurasGeometricas();
+        //GraficarCirculosColeccionados();
+        GraficarRectangulosColeccionados();
     }
 
     public int getAncho() {
@@ -135,7 +146,7 @@ public class App {
         }
     }
 
-    public void PelotaRebotando() {
+    public void PelotaRebotandoHorizontal() {
         int desplazamiento = 10;
         Circulo circulo = new Circulo(20);
         circulo.setX(150);
@@ -225,6 +236,62 @@ public class App {
             miVentana.espera(75);
         }
     }
+
+
+    public void CrearFigurasGeometricas () {
+        System.out.println("Hay " + circulos.size() + " circulos creados");
+
+        Circulo circulo = new Circulo (100);
+        circulo.setX(150);
+        circulo.setY(150);
+        circulos.add(circulo);
+        System.out.println("Hay " + circulos.size() + " circulos creados");
+
+        circulo = new Circulo (50);
+        circulo.setX(300);
+        circulo.setY(250);
+        circulos.add(circulo);
+        System.out.println("Hay " + circulos.size() + " circulos creados");
+
+        circulo = new Circulo (150);
+        circulo.setX(400);
+        circulo.setY(350);
+        circulos.add(circulo);
+        System.out.println("Hay " + circulos.size() + " circulos creados");
+
+
+        //Rectangulos 
+
+        Rectangulo rectangulo = new Rectangulo(100, 100);
+        rectangulo.setX(150);
+        rectangulo.setY(150);
+        rectangulos.add(rectangulo);
+
+        rectangulo = new Rectangulo(50, 50);
+        rectangulo.setX(300);
+        rectangulo.setY(250);
+        rectangulos.add(rectangulo);
+
+        rectangulo = new Rectangulo(150, 150);
+        rectangulo.setX(400);
+        rectangulo.setY(350);
+        rectangulos.add(rectangulo);        
+    }
+ 
+    public void GraficarCirculosColeccionados () {
+        for (Circulo c : circulos) {
+            miVentana.setColorDeLapiz(c.getColor());
+            miVentana.rellenarCirculo(c.getX(), c.getY(), c.getDiametro());
+        }
+    }
+
+    public void GraficarRectangulosColeccionados () {
+        for (Rectangulo r : rectangulos) {
+            miVentana.setColorDeLapiz(r.getColor());
+            miVentana.rellenarRectangulo(r.getX(), r.getY(), r.getLado1(), r.getLado2());
+        }
+    }
+  
 
 
 
