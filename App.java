@@ -200,7 +200,6 @@ public class App {
         }
     }
 
-    //agregar perimetro en vez de diametro 
 
     public void rebotaRec() {
         int desplazamiento = 10;
