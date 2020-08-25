@@ -19,7 +19,8 @@ public class App {
     public void ejecutar() {
         //PelotaRebotando();
         //PelotaRebotandoVertical();
-        rebotarPelota();
+        //rebotarPelota();
+        rebotaRec();
     }
 
     public int getAncho() {
@@ -78,12 +79,10 @@ public class App {
 
         for (int i = 1; i < 15; i++) {
             miVentana.setColorDeLapiz(circulo1.getColor());
-            miVentana.borrarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(),
-                    rectangulo1.getLado2());
+            miVentana.borrarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(), rectangulo1.getLado2());
             rectangulo1.setLado1(rectangulo1.getLado1() - 20);
             rectangulo1.setLado2(rectangulo1.getLado2() - 20);
-            miVentana.rellenarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(),
-                    rectangulo1.getLado2());
+            miVentana.rellenarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(), rectangulo1.getLado2());
             miVentana.espera(250);
         }
     }
@@ -178,26 +177,61 @@ public class App {
 
     public void rebotarPelota() {
         int desplazamiento = 10;
+        int desplazamientoH = 10;
         Circulo circulo = new Circulo(20);
         circulo.setX(150);
         circulo.setY(350);
         miVentana.setColorDeLapiz(circulo.getColor());
         miVentana.rellenarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
-        miVentana.espera(3000);
+        miVentana.espera(2000);
 
         for (int repeticiones = 0; repeticiones < 600; repeticiones++) {
             miVentana.borrarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
             // Verifica rebote en los bordes
             if ((circulo.getX() + circulo.getDiametro() >= getAncho()) || (circulo.getX() <= 0)) {
-                desplazamiento = -desplazamiento;
+                desplazamientoH = -desplazamientoH;
             } if ((circulo.getY() + circulo.getDiametro() >= getAlto()) || (circulo.getY() <= 0)) {
                 desplazamiento = -desplazamiento;            
             }
-            circulo.setX(circulo.getX() + desplazamiento);
+            circulo.setX(circulo.getX() + desplazamientoH);
             circulo.setY(circulo.getY() + desplazamiento);
             miVentana.rellenarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
             miVentana.espera(75);
         }
     }
+
+    //agregar perimetro en vez de diametro 
+
+    public void rebotaRec() {
+        int desplazamiento = 10;
+        int desplazamientoH = 10;
+        Rectangulo rectangulo = new Rectangulo(30, 30);
+        rectangulo.setX(150);
+        rectangulo.setY(350);
+        miVentana.setColorDeLapiz(rectangulo.getColor());
+        miVentana.rellenarRectangulo(rectangulo.getX(), rectangulo.getY(), rectangulo.getLado1(), rectangulo.getLado2());
+        miVentana.espera(2000);
+
+        for (int repeticiones = 0; repeticiones < 600; repeticiones++) {
+            miVentana.borrarRectangulo(rectangulo.getX(), rectangulo.getY(), rectangulo.getLado1(), rectangulo.getLado2());
+            // Verifica rebote en los bordes
+            if ((rectangulo.getX() + rectangulo.getLado1() >= getAncho()) || (rectangulo.getX() <= 0)) {
+                desplazamientoH = -desplazamientoH;
+            } if ((rectangulo.getY() + rectangulo.getLado1() >= getAlto()) || (rectangulo.getY() <= 0)) {
+                desplazamiento = -desplazamiento;            
+            }
+            rectangulo.setX(rectangulo.getX() + desplazamientoH);
+            rectangulo.setY(rectangulo.getY() + desplazamiento);
+            miVentana.rellenarRectangulo(rectangulo.getX(), rectangulo.getY(), rectangulo.getLado1(), rectangulo.getLado2());
+            miVentana.espera(75);
+        }
+    }
+
+
+
+
+
+
+
 
 }

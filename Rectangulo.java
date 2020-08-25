@@ -43,6 +43,7 @@ public class Rectangulo {
         return lado1 * lado2;        
     }
 
+   
     public int getLado1() {
         return lado1;
     }
