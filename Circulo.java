@@ -7,11 +7,17 @@ public class Circulo {
     private int radio = 10; 
     private int x;
     private int y;
+    private int despX;
+    private int despY;
 
     public Circulo (int radio) {
         setRadio(radio);
         determinarColor();
     }
+
+
+
+
 
     // Determina el color del circulo segun el radio 
 
@@ -82,4 +88,38 @@ public class Circulo {
     public void setColor(Color color) {
         this.color = color;
     }
+
+
+
+    /**
+     * Actualizar posicion del objeto
+     */
+    
+    public void actualizarPosicion () {
+        setX( getX() + getDespX() );
+        setY( getY() + getDespY() );
+    }
+
+    public int getDespX() {
+        return despX;
+    }
+
+    public void setDespX(int despX) {
+        this.despX = despX;
+    }
+
+    public int getDespY() {
+        return despY;
+    }
+
+    public void setDespY(int despY) {
+        this.despY = despY;
+    }
+
+
+
+
+
+
+
 }

@@ -7,6 +7,8 @@ public class Rectangulo {
     private int lado2;
     private int x;
     private int y;
+    private int despX;
+    private int despY;
 
   
     public Rectangulo(int lado1, int lado2){
@@ -83,6 +85,40 @@ public class Rectangulo {
     public void setColor(Color color) {
         this.color = color;
     }
+
+
+    /**
+     * Actualizar posicion del objeto
+     */
+    
+    public void actualizarPosicion () {
+        setX( getX() + getDespX() );
+        setY( getY() + getDespY() );
+    }
+
+    public int getDespX() {
+        return despX;
+    }
+
+    public void setDespX(int despX) {
+        this.despX = despX;
+    }
+
+    public int getDespY() {
+        return despY;
+    }
+
+    public void setDespY(int despY) {
+        this.despY = despY;
+    }
+
+
+
+
+
+
+
+
 
 }
 

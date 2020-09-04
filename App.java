@@ -1,21 +1,27 @@
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Random;
+
+
 
 public class App {
 
     private Canvas miVentana;
+    private Random aleatorio;
+
     private int ancho = 800;
     private int alto = 600;
 
     private ArrayList<Circulo> circulos;
     private ArrayList<Rectangulo> rectangulos;
 
-    public App() {
-        miVentana = new Canvas("Hola Ventana", ancho, alto);
-        miVentana.setVisible(true);
 
+    public App() {
+        aleatorio = new Random();
         circulos = new ArrayList<>();
         rectangulos = new ArrayList<>();
+        miVentana = new Canvas("Hola Ventana", ancho, alto);
+        miVentana.setVisible(true);
     }
 
     public static void main(String[] args) throws Exception {
@@ -24,14 +30,19 @@ public class App {
     }
 
     public void ejecutar() {
+
         //PelotaRebotandoHorizontal();
         //PelotaRebotandoVertical();
         //rebotarPelota();
         //rebotaRec();
-
-        CrearFigurasGeometricas();
+        //CrearFigurasGeometricas();
         //GraficarCirculosColeccionados();
-        GraficarRectangulosColeccionados();
+        //GraficarRectangulosColeccionados();
+
+        //funcionCirculos();
+
+        funcionRectangulos();
+
     }
 
     public int getAncho() {
@@ -41,6 +52,9 @@ public class App {
     public int getAlto() {
         return alto;
     }
+
+
+    // Primeros ejemplos 
 
     public void primerosEjemplos() {
         Canvas miVentana = new Canvas("Hola Ventana", 800, 600);
@@ -54,6 +68,9 @@ public class App {
         rectangulo1.setX(150);
         rectangulo1.setY(150);
     }
+
+
+    // Aumentar tamaño 
 
     public void aumentarTamaño() {
         Canvas miVentana = new Canvas("Hola Ventana", 800, 600);
@@ -75,6 +92,9 @@ public class App {
             miVentana.espera(250);
         }
     }
+
+
+    // Disminuir tamaño
 
     public void disminuirTamaño() {
         Canvas miVentana = new Canvas("Hola Ventana", 800, 600);
@@ -98,6 +118,9 @@ public class App {
         }
     }
 
+
+    // Mover hacia la derecha 
+
     public void moverDerecha() {
         Canvas miVentana = new Canvas("Hola Ventana", 800, 600);
         miVentana.setVisible(true);
@@ -120,6 +143,9 @@ public class App {
             miVentana.espera(200);
         }
     }
+
+
+    // Mover hacia abajo 
 
     public void moverAbajo() {
         Canvas miVentana = new Canvas("Hola Ventana", 800, 600);
@@ -146,6 +172,9 @@ public class App {
         }
     }
 
+
+    // Rebotar la pelota en horizontal 
+
     public void PelotaRebotandoHorizontal() {
         int desplazamiento = 10;
         Circulo circulo = new Circulo(20);
@@ -166,6 +195,9 @@ public class App {
         }
     }
 
+    
+    // Rebotar la pelota en vertical 
+
     public void PelotaRebotandoVertical() {
         int desplazamiento = 10;
         Circulo circulo = new Circulo(20);
@@ -185,6 +217,9 @@ public class App {
             miVentana.espera(75);
         }
     }
+
+
+    // Rebotar la pelota vertical y horizontal 
 
     public void rebotarPelota() {
         int desplazamiento = 10;
@@ -211,6 +246,8 @@ public class App {
         }
     }
 
+    
+    // Rebotar rectángulo
 
     public void rebotaRec() {
         int desplazamiento = 10;
@@ -237,6 +274,8 @@ public class App {
         }
     }
 
+        
+    // Crear figuras geométricas 
 
     public void CrearFigurasGeometricas () {
         System.out.println("Hay " + circulos.size() + " circulos creados");
@@ -277,6 +316,13 @@ public class App {
         rectangulo.setY(350);
         rectangulos.add(rectangulo);        
     }
+
+
+    // --- --- --- --- --- --- // 
+
+    // Funciones para circulos 
+
+    // Graficar circulos coleccionados 
  
     public void GraficarCirculosColeccionados () {
         for (Circulo c : circulos) {
@@ -285,13 +331,183 @@ public class App {
         }
     }
 
-    public void GraficarRectangulosColeccionados () {
+    // Actualizar posición de circulos
+
+    public void ActualizarPosicionCirculos () {
+        for (Circulo c : circulos) {
+            c.actualizarPosicion();
+        }
+    }
+
+    // Borrar circulos coleccionador 
+
+    public void BorrarCirculosColeccionados () {
+        for (Circulo c : circulos) {
+            miVentana.borrarCirculo(c.getX(), c.getY(), c.getDiametro());
+        }
+    }
+
+
+    // Funcion circulos - reune varias funciones para dibujar circulos 
+
+    public void funcionCirculos() {
+        ArrayList<Circulo> enRango;
+        CrearFigurasAleatorias(30);
+        enRango = CirculosConRadioEnRango(40, 70);
+        PintarCirculos(enRango, Color.BLUE);
+        enRango = CirculosConRadioEnRango(70, 100);
+        PintarCirculos(enRango, Color.RED);
+        miVentana.espera(15000);
+        GraficarCirculosColeccionados();
+
+        for (int i = 0; i < 100 ; i++) {
+            miVentana.espera(500);
+            BorrarCirculosColeccionados();
+            ActualizarPosicionCirculos();
+            if (i == 15) {
+                PintarCirculos(circulos, Color.MAGENTA);
+            }
+            GraficarCirculosColeccionados();
+        }
+    }
+
+    public ArrayList<Circulo> CirculosConRadioEnRango(int min, int max) {
+        ArrayList<Circulo> lista = new ArrayList<>();
+        for (Circulo c : circulos) {
+            if ( (min <= c.getRadio()) && (c.getRadio() <= max) ) {
+                lista.add(c);
+            }
+        }
+        return lista;
+    }
+
+    public ArrayList<Circulo> CirculosEnUnArea () {
+        return null; 
+    }
+
+    public void PintarCirculos(ArrayList<Circulo> lista, Color color) {
+        for (Circulo c : lista) {
+            c.setColor(color);
+        }
+    }
+
+    public void CrearFigurasAleatorias (int cantidad) {
+        for (int c = 0; c < cantidad; c++) {
+            Circulo circulo = new Circulo ( aleatorio.nextInt(91) + 10 );
+            circulo.setX( aleatorio.nextInt( getAncho() ) );
+            circulo.setY( aleatorio.nextInt( getAlto() ) );
+            circulo.setDespX( aleatorio.nextInt( 31 ) - 15 );
+            circulo.setDespY( aleatorio.nextInt( 31 ) - 15 );
+            circulos.add(circulo);
+        }
+    }
+
+
+    
+
+
+    // --- --- --- --- --- --- // 
+
+    // Funciones para rectangulos 
+
+    // Graficar rectángulos coleccionados 
+
+    public void GraficarRectangulosColeccionados() {
         for (Rectangulo r : rectangulos) {
             miVentana.setColorDeLapiz(r.getColor());
             miVentana.rellenarRectangulo(r.getX(), r.getY(), r.getLado1(), r.getLado2());
         }
     }
-  
+
+    // Actualizar posición de rectangulos
+
+    public void ActualizarPosicionRectangulos() {
+        for (Rectangulo r : rectangulos) {
+            r.actualizarPosicion();
+        }
+    }
+
+    // Borrar rectangulos coleccionador 
+
+    public void BorrarRectangulosColeccionados() {
+        for (Rectangulo r : rectangulos) {
+            miVentana.borrarRectangulo(r.getX(), r.getY(), r.getLado1(), r.getLado2());
+        }
+    }
+
+
+    // Funcion Rectangulos 
+
+    public void funcionRectangulos() {
+        
+        ArrayList<Rectangulo> enRango;
+        
+        CrearRectangulosAleatorios(30);
+        
+        enRango = RectangulosConSuperficieEnRango(40, 70);
+        
+        PintarRectangulos(enRango, Color.BLUE);
+        
+        enRango = RectangulosConSuperficieEnRango(70, 100);
+        
+        PintarRectangulos(enRango, Color.RED);
+        
+        miVentana.espera(1500);
+        
+        GraficarRectangulosColeccionados();
+
+        for (int i = 0; i < 100 ; i++) {
+            miVentana.espera(500);
+            BorrarRectangulosColeccionados();
+            ActualizarPosicionRectangulos();
+            if (i == 15) {
+                PintarCirculos(circulos, Color.MAGENTA);
+            }
+            GraficarRectangulosColeccionados();
+        }
+    }
+
+
+    public ArrayList<Rectangulo> RectangulosConSuperficieEnRango(int min, int max) {
+        ArrayList<Rectangulo> lista = new ArrayList<>();
+        for (Rectangulo r : rectangulos) {
+            if ( (min <= r.getLado1()) && (r.getLado2() <= max) ) {
+                lista.add(r);
+            }
+        }
+        return lista;
+    }
+
+    public ArrayList<Rectangulo> RectangulosEnUnArea() {
+        return null; 
+    }
+
+    public void PintarRectangulos(ArrayList<Rectangulo> lista, Color color) {
+        for (Rectangulo r : lista) {
+            r.setColor(color);
+        }
+    }
+
+   
+    public void CrearRectangulosAleatorios (int cantidad) {
+        for (int r = 0; r < cantidad; r++) {
+            Rectangulo rectangulo = new Rectangulo ( aleatorio.nextInt(91) + 10 );
+            rectangulo.setX( aleatorio.nextInt( getAncho() ) );
+            rectangulo.setY( aleatorio.nextInt( getAlto() ) );
+            rectangulo.setDespX( aleatorio.nextInt( 31 ) - 15 );
+            rectangulo.setDespY( aleatorio.nextInt( 31 ) - 15 );
+            rectangulos.add(rectangulo);
+        }
+    }
+
+
+
+
+
+
+
+
+
 
 
 
