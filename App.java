@@ -491,7 +491,7 @@ public class App {
    
     public void CrearRectangulosAleatorios (int cantidad) {
         for (int r = 0; r < cantidad; r++) {
-            Rectangulo rectangulo = new Rectangulo ( aleatorio.nextInt(91) + 10 );
+            Rectangulo rectangulo = new Rectangulo ( aleatorio.nextInt(91) + 10, aleatorio.nextInt(91) + 10);
             rectangulo.setX( aleatorio.nextInt( getAncho() ) );
             rectangulo.setY( aleatorio.nextInt( getAlto() ) );
             rectangulo.setDespX( aleatorio.nextInt( 31 ) - 15 );
