@@ -54,7 +54,7 @@ public class Triangulo extends FiguraGeometrica {
     }
 
     public int getSuperficie() {
-        return (base * altura)/2;
+        return base * altura;
     }
 
 }

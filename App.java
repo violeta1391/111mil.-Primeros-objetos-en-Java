@@ -12,11 +12,13 @@ public class App {
 
     private ArrayList<Circulo> circulos;
     private ArrayList<Rectangulo> rectangulos;
+    private ArrayList<Triangulo> triangulos;
 
     public App() {
         aleatorio = new Random();
         circulos = new ArrayList<>();
         rectangulos = new ArrayList<>();
+        triangulos = new ArrayList<>();
         miVentana = new Canvas("Hola Ventana", ancho, alto);
         miVentana.setVisible(true);
     }
@@ -25,7 +27,7 @@ public class App {
         App miAplicacion = new App();
         miAplicacion.ejecutar();
         //miAplicacion.imagenes();
-        miAplicacion.triangulos();
+        miAplicacion.funcionTriangulos();
     }
 
     public void ejecutar() {
@@ -582,11 +584,11 @@ public class App {
 
     public void CrearTriangulosAleatorios(int cantidad) {
         for (int t = 0; t < cantidad; t++) {
-            Triangulo triangulos = new Triangulo(aleatorio.nextInt(91) + 10, aleatorio.nextInt(91) + 10);
-            triangulos.setX(aleatorio.nextInt(getAncho()));
-            triangulos.setY(aleatorio.nextInt(getAlto()));
-            triangulos.setDespX(aleatorio.nextInt(31) - 15);
-            triangulos.setDespY(aleatorio.nextInt(31) - 15);
+            Triangulo triangulo = new Triangulo(aleatorio.nextInt(91) + 10, aleatorio.nextInt(91) + 10);
+            triangulo.setX(aleatorio.nextInt(getAncho()));
+            triangulo.setY(aleatorio.nextInt(getAlto()));
+            triangulo.setDespX(aleatorio.nextInt(31) - 15);
+            triangulo.setDespY(aleatorio.nextInt(31) - 15);
             triangulos.add(triangulo);
         }
     }
