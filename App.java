@@ -40,10 +40,10 @@ public class App {
         //GraficarCirculosColeccionados();
         // GraficarRectangulosColeccionados();
 
-        //funcionCirculos();
+        funcionCirculos();
         //funcionRectangulos();
 
-        funcionTriangulos(); 
+        //funcionTriangulos(); 
       
 
     }
@@ -73,12 +73,12 @@ public class App {
         miVentana.setVisible(true);
 
         Circulo circulo1 = new Circulo(1000);
-        circulo1.setX(50);
-        circulo1.setY(50);
+        circulo1.getPosicion().setX(50);
+        circulo1.getPosicion().setY(50);
 
         Rectangulo rectangulo1 = new Rectangulo(300, 300);
-        rectangulo1.setX(150);
-        rectangulo1.setY(150);
+        rectangulo1.getPosicion().setX(150);
+        rectangulo1.getPosicion().setY(150);
     }
 
     // Aumentar tamaño
@@ -88,18 +88,18 @@ public class App {
         miVentana.setVisible(true);
 
         Circulo circulo1 = new Circulo(1000);
-        circulo1.setX(50);
-        circulo1.setY(50);
+        circulo1.getPosicion().setX(50);
+        circulo1.getPosicion().setY(50);
 
         Rectangulo rectangulo1 = new Rectangulo(300, 300);
-        rectangulo1.setX(150);
-        rectangulo1.setY(150);
+        rectangulo1.getPosicion().setX(150);
+        rectangulo1.getPosicion().setY(150);
 
         for (int radio = 50; radio < 200; radio++) {
             miVentana.setColorDeLapiz(circulo1.getColor());
-            miVentana.borrarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getRadio());
+            miVentana.borrarCirculo(circulo1.getPosicion().getX(), circulo1.getPosicion().getY(), circulo1.getRadio());
             circulo1.setRadio(circulo1.getRadio() + 10);
-            miVentana.rellenarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getRadio());
+            miVentana.rellenarCirculo(circulo1.getPosicion().getX(), circulo1.getPosicion().getY(), circulo1.getRadio());
             miVentana.espera(250);
         }
     }
@@ -111,20 +111,20 @@ public class App {
         miVentana.setVisible(true);
 
         Circulo circulo1 = new Circulo(1000);
-        circulo1.setX(50);
-        circulo1.setY(50);
+        circulo1.getPosicion().setX(50);
+        circulo1.getPosicion().setY(50);
 
         Rectangulo rectangulo1 = new Rectangulo(300, 300);
-        rectangulo1.setX(150);
-        rectangulo1.setY(150);
+        rectangulo1.getPosicion().setX(150);
+        rectangulo1.getPosicion().setY(150);
 
         for (int i = 1; i < 15; i++) {
             miVentana.setColorDeLapiz(circulo1.getColor());
-            miVentana.borrarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(),
+            miVentana.borrarRectangulo(rectangulo1.getPosicion().getX(), rectangulo1.getPosicion().getY(), rectangulo1.getLado1(),
                     rectangulo1.getLado2());
             rectangulo1.setLado1(rectangulo1.getLado1() - 20);
             rectangulo1.setLado2(rectangulo1.getLado2() - 20);
-            miVentana.rellenarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(),
+            miVentana.rellenarRectangulo(rectangulo1.getPosicion().getX(), rectangulo1.getPosicion().getY(), rectangulo1.getLado1(),
                     rectangulo1.getLado2());
             miVentana.espera(250);
         }
@@ -137,19 +137,19 @@ public class App {
         miVentana.setVisible(true);
 
         Circulo circulo1 = new Circulo(1000);
-        circulo1.setX(50);
-        circulo1.setY(50);
+        circulo1.getPosicion().setX(50);
+        circulo1.getPosicion().setY(50);
 
         Rectangulo rectangulo1 = new Rectangulo(300, 300);
-        rectangulo1.setX(150);
-        rectangulo1.setY(150);
+        rectangulo1.getPosicion().setX(150);
+        rectangulo1.getPosicion().setY(150);
 
         int repe = 0;
         while (repe < 10) {
             miVentana.setColorDeLapiz(circulo1.getColor());
-            miVentana.borrarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getDiametro());
-            circulo1.setX(circulo1.getX() + 30);
-            miVentana.rellenarCirculo(circulo1.getX(), circulo1.getY(), circulo1.getDiametro());
+            miVentana.borrarCirculo(circulo1.getPosicion().getX(), circulo1.getPosicion().getY(), circulo1.getDiametro());
+            circulo1.getPosicion().setX(circulo1.getPosicion().getX() + 30);
+            miVentana.rellenarCirculo(circulo1.getPosicion().getX(), circulo1.getPosicion().getY(), circulo1.getDiametro());
             repe = repe + 1;
             miVentana.espera(200);
         }
@@ -162,21 +162,21 @@ public class App {
         miVentana.setVisible(true);
 
         Circulo circulo1 = new Circulo(1000);
-        circulo1.setX(50);
-        circulo1.setY(50);
+        circulo1.getPosicion().setX(50);
+        circulo1.getPosicion().setY(50);
 
         Rectangulo rectangulo1 = new Rectangulo(300, 300);
-        rectangulo1.setX(150);
-        rectangulo1.setY(150);
+        rectangulo1.getPosicion().setX(150);
+        rectangulo1.getPosicion().setY(150);
 
         int rep = 0;
         while (rep < 10) {
             miVentana.espera(500);
             miVentana.setColorDeLapiz(Color.MAGENTA);
-            miVentana.borrarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(),
+            miVentana.borrarRectangulo(rectangulo1.getPosicion().getX(), rectangulo1.getPosicion().getY(), rectangulo1.getLado1(),
                     rectangulo1.getLado2());
-            rectangulo1.setY(rectangulo1.getY() + 40);
-            miVentana.rellenarRectangulo(rectangulo1.getX(), rectangulo1.getY(), rectangulo1.getLado1(),
+            rectangulo1.getPosicion().setY(rectangulo1.getPosicion().getY() + 40);
+            miVentana.rellenarRectangulo(rectangulo1.getPosicion().getX(), rectangulo1.getPosicion().getY(), rectangulo1.getLado1(),
                     rectangulo1.getLado2());
             rep = rep + 1;
         }
@@ -187,19 +187,19 @@ public class App {
     public void PelotaRebotandoHorizontal() {
         int desplazamiento = 10;
         Circulo circulo = new Circulo(20);
-        circulo.setX(150);
-        circulo.setY(350);
+        circulo.getPosicion().setX(150);
+        circulo.getPosicion().setY(350);
         miVentana.setColorDeLapiz(circulo.getColor());
-        miVentana.rellenarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
+        miVentana.rellenarCirculo(circulo.getPosicion().getX(), circulo.getPosicion().getY(), circulo.getDiametro());
         miVentana.espera(5000);
         for (int repeticiones = 0; repeticiones < 600; repeticiones++) {
-            miVentana.borrarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
+            miVentana.borrarCirculo(circulo.getPosicion().getX(), circulo.getPosicion().getY(), circulo.getDiametro());
             // Verifica rebote en los bordes
-            if ((circulo.getX() + circulo.getDiametro() >= getAncho()) || (circulo.getX() <= 0)) {
+            if ((circulo.getPosicion().getX() + circulo.getDiametro() >= getAncho()) || (circulo.getPosicion().getX() <= 0)) {
                 desplazamiento = -desplazamiento;
             }
-            circulo.setX(circulo.getX() + desplazamiento);
-            miVentana.rellenarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
+            circulo.getPosicion().setX(circulo.getPosicion().getX() + desplazamiento);
+            miVentana.rellenarCirculo(circulo.getPosicion().getX(), circulo.getPosicion().getY(), circulo.getDiametro());
             miVentana.espera(75);
         }
     }
@@ -209,19 +209,19 @@ public class App {
     public void PelotaRebotandoVertical() {
         int desplazamiento = 10;
         Circulo circulo = new Circulo(20);
-        circulo.setX(150);
-        circulo.setY(350);
+        circulo.getPosicion().setX(150);
+        circulo.getPosicion().setY(350);
         miVentana.setColorDeLapiz(circulo.getColor());
-        miVentana.rellenarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
+        miVentana.rellenarCirculo(circulo.getPosicion().getX(), circulo.getPosicion().getY(), circulo.getDiametro());
         miVentana.espera(5000);
         for (int repeticiones = 0; repeticiones < 600; repeticiones++) {
-            miVentana.borrarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
+            miVentana.borrarCirculo(circulo.getPosicion().getX(), circulo.getPosicion().getY(), circulo.getDiametro());
             // Verifica rebote en los bordes
-            if ((circulo.getY() + circulo.getDiametro() >= getAlto()) || (circulo.getY() <= 0)) {
+            if ((circulo.getPosicion().getY() + circulo.getDiametro() >= getAlto()) || (circulo.getPosicion().getY() <= 0)) {
                 desplazamiento = -desplazamiento;
             }
-            circulo.setY(circulo.getY() + desplazamiento);
-            miVentana.rellenarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
+            circulo.getPosicion().setY(circulo.getPosicion().getY() + desplazamiento);
+            miVentana.rellenarCirculo(circulo.getPosicion().getX(), circulo.getPosicion().getY(), circulo.getDiametro());
             miVentana.espera(75);
         }
     }
@@ -232,24 +232,24 @@ public class App {
         int desplazamiento = 10;
         int desplazamientoH = 10;
         Circulo circulo = new Circulo(20);
-        circulo.setX(150);
-        circulo.setY(350);
+        circulo.getPosicion().setX(150);
+        circulo.getPosicion().setY(350);
         miVentana.setColorDeLapiz(circulo.getColor());
-        miVentana.rellenarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
+        miVentana.rellenarCirculo(circulo.getPosicion().getX(), circulo.getPosicion().getY(), circulo.getDiametro());
         miVentana.espera(2000);
 
         for (int repeticiones = 0; repeticiones < 600; repeticiones++) {
-            miVentana.borrarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
+            miVentana.borrarCirculo(circulo.getPosicion().getX(), circulo.getPosicion().getY(), circulo.getDiametro());
             // Verifica rebote en los bordes
-            if ((circulo.getX() + circulo.getDiametro() >= getAncho()) || (circulo.getX() <= 0)) {
+            if ((circulo.getPosicion().getX() + circulo.getDiametro() >= getAncho()) || (circulo.getPosicion().getX() <= 0)) {
                 desplazamientoH = -desplazamientoH;
             }
-            if ((circulo.getY() + circulo.getDiametro() >= getAlto()) || (circulo.getY() <= 0)) {
+            if ((circulo.getPosicion().getY() + circulo.getDiametro() >= getAlto()) || (circulo.getPosicion().getY() <= 0)) {
                 desplazamiento = -desplazamiento;
             }
-            circulo.setX(circulo.getX() + desplazamientoH);
-            circulo.setY(circulo.getY() + desplazamiento);
-            miVentana.rellenarCirculo(circulo.getX(), circulo.getY(), circulo.getDiametro());
+            circulo.getPosicion().setX(circulo.getPosicion().getX() + desplazamientoH);
+            circulo.getPosicion().setY(circulo.getPosicion().getY() + desplazamiento);
+            miVentana.rellenarCirculo(circulo.getPosicion().getX(), circulo.getPosicion().getY(), circulo.getDiametro());
             miVentana.espera(75);
         }
     }
@@ -260,26 +260,26 @@ public class App {
         int desplazamiento = 10;
         int desplazamientoH = 10;
         Rectangulo rectangulo = new Rectangulo(30, 30);
-        rectangulo.setX(150);
-        rectangulo.setY(350);
+        rectangulo.getPosicion().setX(150);
+        rectangulo.getPosicion().setY(350);
         miVentana.setColorDeLapiz(rectangulo.getColor());
-        miVentana.rellenarRectangulo(rectangulo.getX(), rectangulo.getY(), rectangulo.getLado1(),
+        miVentana.rellenarRectangulo(rectangulo.getPosicion().getX(), rectangulo.getPosicion().getY(), rectangulo.getLado1(),
                 rectangulo.getLado2());
         miVentana.espera(2000);
 
         for (int repeticiones = 0; repeticiones < 600; repeticiones++) {
-            miVentana.borrarRectangulo(rectangulo.getX(), rectangulo.getY(), rectangulo.getLado1(),
+            miVentana.borrarRectangulo(rectangulo.getPosicion().getX(), rectangulo.getPosicion().getY(), rectangulo.getLado1(),
                     rectangulo.getLado2());
             // Verifica rebote en los bordes
-            if ((rectangulo.getX() + rectangulo.getLado1() >= getAncho()) || (rectangulo.getX() <= 0)) {
+            if ((rectangulo.getPosicion().getX() + rectangulo.getLado1() >= getAncho()) || (rectangulo.getPosicion().getX() <= 0)) {
                 desplazamientoH = -desplazamientoH;
             }
-            if ((rectangulo.getY() + rectangulo.getLado1() >= getAlto()) || (rectangulo.getY() <= 0)) {
+            if ((rectangulo.getPosicion().getY() + rectangulo.getLado1() >= getAlto()) || (rectangulo.getPosicion().getY() <= 0)) {
                 desplazamiento = -desplazamiento;
             }
-            rectangulo.setX(rectangulo.getX() + desplazamientoH);
-            rectangulo.setY(rectangulo.getY() + desplazamiento);
-            miVentana.rellenarRectangulo(rectangulo.getX(), rectangulo.getY(), rectangulo.getLado1(),
+            rectangulo.getPosicion().setX(rectangulo.getPosicion().getX() + desplazamientoH);
+            rectangulo.getPosicion().setY(rectangulo.getPosicion().getY() + desplazamiento);
+            miVentana.rellenarRectangulo(rectangulo.getPosicion().getX(), rectangulo.getPosicion().getY(), rectangulo.getLado1(),
                     rectangulo.getLado2());
             miVentana.espera(75);
         }
@@ -291,38 +291,38 @@ public class App {
         System.out.println("Hay " + circulos.size() + " circulos creados");
 
         Circulo circulo = new Circulo(100);
-        circulo.setX(150);
-        circulo.setY(150);
+        circulo.getPosicion().setX(150);
+        circulo.getPosicion().setY(150);
         circulos.add(circulo);
         System.out.println("Hay " + circulos.size() + " circulos creados");
 
         circulo = new Circulo(50);
-        circulo.setX(300);
-        circulo.setY(250);
+        circulo.getPosicion().setX(300);
+        circulo.getPosicion().setY(250);
         circulos.add(circulo);
         System.out.println("Hay " + circulos.size() + " circulos creados");
 
         circulo = new Circulo(150);
-        circulo.setX(400);
-        circulo.setY(350);
+        circulo.getPosicion().setX(400);
+        circulo.getPosicion().setY(350);
         circulos.add(circulo);
         System.out.println("Hay " + circulos.size() + " circulos creados");
 
         // Rectangulos
 
         Rectangulo rectangulo = new Rectangulo(100, 100);
-        rectangulo.setX(150);
-        rectangulo.setY(150);
+        rectangulo.getPosicion().setX(150);
+        rectangulo.getPosicion().setY(150);
         rectangulos.add(rectangulo);
 
         rectangulo = new Rectangulo(50, 50);
-        rectangulo.setX(300);
-        rectangulo.setY(250);
+        rectangulo.getPosicion().setX(300);
+        rectangulo.getPosicion().setY(250);
         rectangulos.add(rectangulo);
 
         rectangulo = new Rectangulo(150, 150);
-        rectangulo.setX(400);
-        rectangulo.setY(350);
+        rectangulo.getPosicion().setX(400);
+        rectangulo.getPosicion().setY(350);
         rectangulos.add(rectangulo);
     }
 
@@ -336,7 +336,7 @@ public class App {
     public void GraficarCirculosColeccionados() {
         for (Circulo c : circulos) {
             miVentana.setColorDeLapiz(c.getColor());
-            miVentana.rellenarCirculo(c.getX(), c.getY(), c.getDiametro());
+            miVentana.rellenarCirculo(c.getPosicion().getX(), c.getPosicion().getY(), c.getDiametro());
         }
     }
 
@@ -352,7 +352,7 @@ public class App {
 
     public void BorrarCirculosColeccionados() {
         for (Circulo c : circulos) {
-            miVentana.borrarCirculo(c.getX(), c.getY(), c.getDiametro());
+            miVentana.borrarCirculo(c.getPosicion().getX(), c.getPosicion().getY(), c.getDiametro());
         }
     }
 
@@ -402,10 +402,10 @@ public class App {
     public void CrearFigurasAleatorias(int cantidad) {
         for (int c = 0; c < cantidad; c++) {
             Circulo circulo = new Circulo(aleatorio.nextInt(91) + 10);
-            circulo.setX(aleatorio.nextInt(getAncho()));
-            circulo.setY(aleatorio.nextInt(getAlto()));
-            circulo.setDespX(aleatorio.nextInt(31) - 15);
-            circulo.setDespY(aleatorio.nextInt(31) - 15);
+            circulo.getPosicion().setX(aleatorio.nextInt(getAncho()));
+            circulo.getPosicion().setY(aleatorio.nextInt(getAlto()));
+            circulo.getPosicion().setDespX(aleatorio.nextInt(31) - 15);
+            circulo.getPosicion().setDespY(aleatorio.nextInt(31) - 15);
             circulos.add(circulo);
         }
     }
@@ -419,7 +419,7 @@ public class App {
     public void GraficarRectangulosColeccionados() {
         for (Rectangulo r : rectangulos) {
             miVentana.setColorDeLapiz(r.getColor());
-            miVentana.rellenarRectangulo(r.getX(), r.getY(), r.getLado1(), r.getLado2());
+            miVentana.rellenarRectangulo(r.getPosicion().getX(), r.getPosicion().getY(), r.getLado1(), r.getLado2());
         }
     }
 
@@ -435,7 +435,7 @@ public class App {
 
     public void BorrarRectangulosColeccionados() {
         for (Rectangulo r : rectangulos) {
-            miVentana.borrarRectangulo(r.getX(), r.getY(), r.getLado1(), r.getLado2());
+            miVentana.borrarRectangulo(r.getPosicion().getX(), r.getPosicion().getY(), r.getLado1(), r.getLado2());
         }
     }
 
@@ -493,10 +493,10 @@ public class App {
     public void CrearRectangulosAleatorios(int cantidad) {
         for (int r = 0; r < cantidad; r++) {
             Rectangulo rectangulo = new Rectangulo(aleatorio.nextInt(91) + 10, aleatorio.nextInt(91) + 10);
-            rectangulo.setX(aleatorio.nextInt(getAncho()));
-            rectangulo.setY(aleatorio.nextInt(getAlto()));
-            rectangulo.setDespX(aleatorio.nextInt(31) - 15);
-            rectangulo.setDespY(aleatorio.nextInt(31) - 15);
+            rectangulo.getPosicion().setX(aleatorio.nextInt(getAncho()));
+            rectangulo.getPosicion().setY(aleatorio.nextInt(getAlto()));
+            rectangulo.getPosicion().setDespX(aleatorio.nextInt(31) - 15);
+            rectangulo.getPosicion().setDespY(aleatorio.nextInt(31) - 15);
             rectangulos.add(rectangulo);
         }
     }
@@ -504,18 +504,18 @@ public class App {
 
     // --- --- --- --- --- --- //
   
-    // Funciones para triangulos --- revisar error "triangulos"
+    // Funciones para triangulos 
 
     // Graficar triángulos coleccionados
 
     public void GraficarTriangulosColeccionados() {
         for (Triangulo t : triangulos) {
             miVentana.setColorDeLapiz(t.getColor());
-            miVentana.rellenarTriangulo(t.getX(), t.getY(), t.getBase(), t.getAltura());
+            miVentana.rellenarTriangulo(t.getPosicion().getX(), t.getPosicion().getY(), t.getBase(), t.getAltura());
         }
     }
 
-    // Actualizar posición de rectangulos
+    // Actualizar posición de triangulos
 
     public void ActualizarPosicionTriangulos() {
         for (Triangulo t : triangulos) {
@@ -523,15 +523,15 @@ public class App {
         }
     }
 
-    // Borrar rectangulos coleccionador
+    // Borrar triangulos coleccionador
 
     public void BorrarTriangulosColeccionados() {
         for (Triangulo t : triangulos) {
-            miVentana.borrarTriangulo(t.getX(), t.getY(), t.getBase(), t.getAltura());
+            miVentana.borrarTriangulo(t.getPosicion().getX(), t.getPosicion().getY(), t.getBase(), t.getAltura());
         }
     }
 
-    // Funcion Rectangulos
+    // Funcion triangulos
 
     public void funcionTriangulos() {
 
@@ -585,10 +585,10 @@ public class App {
     public void CrearTriangulosAleatorios(int cantidad) {
         for (int t = 0; t < cantidad; t++) {
             Triangulo triangulo = new Triangulo(aleatorio.nextInt(91) + 10, aleatorio.nextInt(91) + 10);
-            triangulo.setX(aleatorio.nextInt(getAncho()));
-            triangulo.setY(aleatorio.nextInt(getAlto()));
-            triangulo.setDespX(aleatorio.nextInt(31) - 15);
-            triangulo.setDespY(aleatorio.nextInt(31) - 15);
+            triangulo.getPosicion().setX(aleatorio.nextInt(getAncho()));
+            triangulo.getPosicion().setY(aleatorio.nextInt(getAlto()));
+            triangulo.getPosicion().setDespX(aleatorio.nextInt(31) - 15);
+            triangulo.getPosicion().setDespY(aleatorio.nextInt(31) - 15);
             triangulos.add(triangulo);
         }
     }

@@ -2,27 +2,21 @@ import java.awt.Color;
 
 public class FiguraGeometrica {
     private Color color ;
-    private int x;
-    private int y;
-    private int despX;
-    private int despY;
+
+    private Posicion pos;          
+
+    public FiguraGeometrica() {
+        pos = new Posicion(0, 0);        
+    }
     
-    public int getX() {
-        return x;
+    public FiguraGeometrica(int x, int y) {
+        pos = new Posicion(x, y);        
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void actualizarPosicion() {
+        pos.NuevaPosicion();
     }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
+    
     public Color getColor() {
         return color;
     }
@@ -31,28 +25,15 @@ public class FiguraGeometrica {
         this.color = color;
     }
 
-    /**
-     * Actualizar posicion del objeto
-     */
-    public void actualizarPosicion () {
-        setX( getX() + getDespX() );
-        setY( getY() + getDespY() );
+    public Posicion getPosicion() {
+        return pos;
     }
 
-    public int getDespX() {
-        return despX;
+    public void setPosicion(Posicion pos) {
+        this.pos = pos;
     }
 
-    public void setDespX(int despX) {
-        this.despX = despX;
-    }
 
-    public int getDespY() {
-        return despY;
-    }
 
-    public void setDespY(int despY) {
-        this.despY = despY;
-    }
-
+  
 }

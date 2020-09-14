@@ -6,7 +6,7 @@ public class Circulo extends FiguraGeometrica {
 
     private int radio = 10;
 
-    public Circulo(int radio) {
+    public Circulo (int radio) {
         setRadio(radio);
         determinarColor();
     }

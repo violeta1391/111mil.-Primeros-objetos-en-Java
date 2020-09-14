@@ -5,7 +5,7 @@ public class Rectangulo extends FiguraGeometrica {
     private int lado1;
     private int lado2;
 
-    public Rectangulo(int lado1, int lado2) {
+    public Rectangulo (int lado1, int lado2) {
         this.lado1 = lado1;
         this.lado2 = lado2;
         determinarColor();
