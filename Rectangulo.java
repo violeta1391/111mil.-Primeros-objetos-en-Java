@@ -29,8 +29,12 @@ public class Rectangulo extends FiguraGeometrica {
         }
     }
 
-    public int getSuperficie() {
+    public double getSuperficie() {
         return lado1 * lado2;
+    }
+
+    public double getPerimetro() {
+        return (lado1 + lado2) * 2;
     }
 
     public int getLado1() {

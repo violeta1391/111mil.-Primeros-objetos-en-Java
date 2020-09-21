@@ -4,6 +4,9 @@ public class Triangulo extends FiguraGeometrica {
     private int base;
     private int altura;
 
+    private int ladoA;
+    private int ladoB;
+
     public Triangulo(int base, int altura) {
         this.base = base;
         this.altura = altura;
@@ -13,9 +16,12 @@ public class Triangulo extends FiguraGeometrica {
     public Triangulo() {
     }
 
-    public Triangulo(int base, int altura, Color color) {
+    public Triangulo(int base, int altura, Color color, int ladoA, int ladoB) {
         this.base = base;
         this.altura = altura;
+
+        this.ladoA = ladoA;
+        this.ladoB = ladoB;
         setColor(color);
     }
 
@@ -33,6 +39,22 @@ public class Triangulo extends FiguraGeometrica {
 
     public void setAltura(int altura) {
         this.altura = altura;
+    }
+
+    public int getLadoA() {
+        return ladoA;
+    }
+
+    public void setLadoA(int ladoA) {
+        this.ladoA = ladoA;
+    }
+
+    public int getLadoB() {
+        return ladoB;
+    }
+
+    public void setLadoB(int ladoB) {
+        this.ladoB = ladoB;
     }
 
     // Determina el color del rectangulo segun la superficie
@@ -53,8 +75,12 @@ public class Triangulo extends FiguraGeometrica {
         }
     }
 
-    public int getSuperficie() {
+    public double getSuperficie() {
         return base * altura;
+    }
+
+    public double getPerimetro() {
+        return base + ladoA + ladoB;
     }
 
 }

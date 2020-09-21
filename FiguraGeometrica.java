@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class FiguraGeometrica {
+public abstract class FiguraGeometrica {
     private Color color ;
 
     private Posicion pos;          
@@ -13,9 +13,25 @@ public class FiguraGeometrica {
         pos = new Posicion(x, y);        
     }
 
+    public FiguraGeometrica (int x, int y, Color color) {
+        this.color = color;
+        pos = new Posicion(x, y);
+    }
+
+    public FiguraGeometrica (Posicion pos, Color color) {
+        this.color = color;
+        this.pos = pos;
+    }
+
     public void actualizarPosicion() {
         pos.NuevaPosicion();
     }
+
+
+    public abstract double getSuperficie ();
+    public abstract double getPerimetro ();
+
+    
     
     public Color getColor() {
         return color;
