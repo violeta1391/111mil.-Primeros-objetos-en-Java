@@ -14,11 +14,17 @@ public class App {
     private ArrayList<Rectangulo> rectangulos;
     private ArrayList<Triangulo> triangulos;
 
+    private ArrayList<FiguraGeometrica> figuras;
+
     public App() {
         aleatorio = new Random();
+
         circulos = new ArrayList<>();
         rectangulos = new ArrayList<>();
         triangulos = new ArrayList<>();
+
+        figuras = new ArrayList<>();
+
         miVentana = new Canvas("Hola Ventana", ancho, alto);
         miVentana.setVisible(true);
     }
@@ -27,7 +33,7 @@ public class App {
         App miAplicacion = new App();
         miAplicacion.ejecutar();
         //miAplicacion.imagenes();
-        miAplicacion.funcionTriangulos();
+        miAplicacion.funcionFiguras();
     }
 
     public void ejecutar() {
@@ -39,13 +45,10 @@ public class App {
         //CrearFigurasGeometricas();        
         //GraficarCirculosColeccionados();
         // GraficarRectangulosColeccionados();
-
-        funcionCirculos();
+        //funcionCirculos();
         //funcionRectangulos();
-
         //funcionTriangulos(); 
       
-
     }
 
     public int getAncho() {
@@ -55,7 +58,6 @@ public class App {
     public int getAlto() {
         return alto;
     }
-
 
 
     // Colocar imagenes en la ventana
@@ -596,8 +598,56 @@ public class App {
 
 
 
+    ///////// FIGURAS GEOMETRICAS //////////
 
 
+    public void funcionFiguras() {
+        
+        FiguraGeometrica figura1 = new Circulo(50);
+
+        System.out.println("Perimetro: " + figura1.getPerimetro());
+        System.out.println("Superficie: " + figura1.getSuperficie());
+
+        FiguraGeometrica figura2 = new Rectangulo(100, 250);
+          
+        System.out.println("Perimetro: " + figura2.getPerimetro());
+        System.out.println("Superficie: " + figura2.getSuperficie());
+
+        FiguraGeometrica figura3 = new Triangulo(200, 300);
+   
+        System.out.println("Perimetro: " + figura3.getPerimetro());
+        System.out.println("Superficie: " + figura3.getSuperficie());
+  
+    }
+
+
+    /*
+
+    Crea figuras pero no las grafica 
+
+    public void funcionFiguras() {
+        System.out.println("Hay " + figuras.size() + " figuras");
+
+        FiguraGeometrica figura1 = new Circulo(50);
+        figura1.getPosicion().setX(150);
+        figura1.getPosicion().setY(150);
+        figuras.add(figura1);
+        System.out.println("Hay " + figuras.size() + " figuras");
+
+        FiguraGeometrica figura2 = new Rectangulo(100, 50);
+        figura2.getPosicion().setX(300);
+        figura2.getPosicion().setY(250);
+        figuras.add(figura2);
+        System.out.println("Hay " + figuras.size() + " figuras");
+
+        FiguraGeometrica figura3 = new Triangulo(100, 50);
+        figura3.getPosicion().setX(400);
+        figura3.getPosicion().setY(350);
+        figuras.add(figura3);
+        System.out.println("Hay " + figuras.size() + " figuras");
+  
+    }
+    */
 
 
 
